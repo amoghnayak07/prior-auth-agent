@@ -57,7 +57,8 @@ export default function App() {
     setLastPatientName(formData.get("patient_name") || "");
 
     try {
-      const res = await fetch("/api/authorize", {
+      const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+      const res = await fetch(`${API_BASE}/api/authorize`, {
         method: "POST",
         body: formData,
       });
